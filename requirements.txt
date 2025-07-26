@@ -1,0 +1,9 @@
+django
+django-allauth
+pillow
+django_browser_reload
+django_cleanup
+channels
+daphne
+starlette   
+channels_redis

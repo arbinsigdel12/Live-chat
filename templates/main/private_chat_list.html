@@ -1,0 +1,75 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<div class="chat-list-container">
+  <h2>Your Conversations</h2>
+
+  {% if chats %}
+    <ul class="chat-list">
+      {% for chat in chats %}
+        {% for participant in chat.participants.all %}
+          {% if participant != request.user %}
+            <li>
+              <a href="{% url 'private_chat' participant.username %}">
+                Chat with {{ participant.username }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="no-chats">No private chats yet.</p>
+  {% endif %}
+</div>
+
+<style>
+.chat-list-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.chat-list-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.chat-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.chat-list li {
+  margin: 12px 0;
+  background-color: #f9f9f9;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.chat-list li:hover {
+  background-color: #f3f4f6;
+}
+
+.chat-list a {
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.chat-list a:hover {
+  text-decoration: underline;
+}
+
+.no-chats {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+</style>
+{% endblock %}

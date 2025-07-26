@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}My Site{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+ <nav>
+  <ul class="navbar navbar-left">
+    <li>
+      <a href="{% url 'home' %}" class="logo-link">
+        <img src="{% static 'images/logo.svg' %}" alt="Logo" class="logo" />
+        <span class="site-name">Live Chat</span>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="navbar navbar-right">
+    {% if user.is_authenticated %}
+      <li class="welcome-user">Hello, {{ user.profile.name|default:user.username }}!</li>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'public_chat' %}">Chat</a></li>
+      <li><a href="{% url 'private_chat_list' %}">Messages</a></li>
+      <li>
+        <form method="POST" action="{% url 'account_logout' %}" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit" class="btn-link">Sign Out</button>
+        </form>
+      </li>
+    {% endif %}
+  </ul>
+  </nav>
+
+  {% block content %}{% endblock %}
+</body>
+</html>

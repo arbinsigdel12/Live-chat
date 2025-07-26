@@ -1,0 +1,47 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+  <h2>Sign In</h2>
+  <form method="POST" action="{% url 'account_login' %}" hx-post="{% url 'account_login' %}" hx-target="#content" hx-swap="innerHTML">
+    {% csrf_token %}
+    
+    <label for="{{ form.login.id_for_label }}">Username or Email</label>
+    {{ form.login }}
+
+    {% if form.login.errors %}
+      <ul class="errorlist">
+        {% for error in form.login.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <label for="{{ form.password.id_for_label }}">Password</label>
+    {{ form.password }}
+
+    {% if form.password.errors %}
+      <ul class="errorlist">
+        {% for error in form.password.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div>
+      {{ form.remember }} <label for="{{ form.remember.id_for_label }}">Remember Me</label>
+    </div>
+
+    <button type="submit">Sign In</button>
+  </form>
+
+  <p>Don't have an account? <a href="{% url 'account_signup' %}" hx-get="{% url 'account_signup' %}" hx-target="#content" hx-swap="innerHTML">Sign Up</a></p>
+</div>
+{% endblock %}

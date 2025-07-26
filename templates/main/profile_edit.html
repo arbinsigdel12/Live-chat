@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="edit-profile-container">
+  <h2>Edit Your Profile</h2>
+  <form method="post" enctype="multipart/form-data" class="profile-form">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_name">Name</label>
+      {{ form.name }}
+    </div>
+    <div class="form-group">
+      <label for="id_image">Profile Picture</label>
+      {{ form.image }}
+    </div>
+    <button type="submit" class="submit-btn">Save Changes</button>
+  </form>
+</div>
+{% endblock %}

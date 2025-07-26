@@ -1,0 +1,278 @@
+/* Reset some basics */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body and layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar styling */
+nav {
+  background-color: #222;
+  padding: 1rem 2rem;
+}
+
+nav {
+  background-color: #222;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;  /* space between left and right */
+  align-items: center;  /* vertically center items */
+}
+
+/* Left navbar for logo and site name */
+.navbar-left {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.logo {
+  height: 32px;
+  width: 32px;
+  margin-right: 0.5rem;
+}
+
+.site-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Right navbar for links and user greeting */
+.navbar-right {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-user {
+  font-weight: bold;
+  color: #38bdf8;  /* light blue */
+}
+
+/* Link styles (you can keep your existing styles for links/buttons) */
+.navbar-right a, .btn-link {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-right a:hover, .btn-link:hover {
+  background-color: #495057;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Logo and site name */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 0.5rem;
+}
+
+.site-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Welcome user text */
+.welcome-user {
+  margin-right: 1.5rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* Main content area */
+main#content {
+  flex: 1;
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Messages container */
+.message-container {
+  margin: 1rem auto;
+  max-width: 600px;
+  width: 90%;
+}
+
+.message {
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1rem;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.message.success {
+  background-color: #28a745;
+}
+
+.message.error {
+  background-color: #dc3545;
+}
+
+.message.warning {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.message.info {
+  background-color: #17a2b8;
+}
+
+/* Fade-out hidden messages */
+.message.fade-out {
+  opacity: 0;
+}
+
+/* Logout page container */
+.logout-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.logout-container h2 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.logout-container .btn {
+  padding: 0.6rem 1.4rem;
+  background-color: #343a40;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-container .btn:hover {
+  background-color: #495057;
+}
+
+.edit-profile-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #333;
+}
+
+.profile-form .form-group {
+    margin-bottom: 20px;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+.profile-form input[type="file"] {
+    padding: 6px;
+    background-color: #fff;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1e40af;
+}
+.edit-profile-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #28a745; /* green */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.edit-profile-button:hover {
+  background-color: #218838;
+}
